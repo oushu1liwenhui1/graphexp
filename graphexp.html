@@ -41,34 +41,34 @@
 				<nav class="navbar navbar-dark bg-dark" style="color:white;">
 					<div class="form-inline my-2 my-lg-0" style="color:white;">
 						<div class="nav input_unit_container form-group">
-							<label for="label_field">Node label :</label>
+							<label for="label_field">节点标签:</label>
 							<input type="text" class="form-control"  name="label_field" id="label_field" placeholder="Node label" value="" />
 						</div>
 						<div class="nav input_unit_container form-group">
-							<label for="search_field">Node property:</label>
+							<label for="search_field">节点属性:</label>
 							<input name="search_field" class="form-control"  id="search_field" value="" />
 						</div>
 						<div class="nav input_unit_container form-group">
-							<label class="nav input_label" for="search_value">Property value:</label>
+							<label class="nav input_label" for="search_value">属性值:</label>
 							<input name="search_value" class="form-control"  id="search_value" value="" />
 						</div>
 						<div class="nav input_unit_container form-group">
-							<label for="search_type">Type of search:</label>
+							<label for="search_type">搜索类型:</label>
 							<select class="form-control form-control-lg" name="search_type" id="search_type">
-								<option value="eq">Equals</option>
-								<option value="contains">Contains</option>
+								<option value="eq">相等</option>
+								<option value="contains">包含</option>
 							</select>
 						</div>
 						<div class="nav input_unit_container form-group">
-							<label for="limit_field">Results limit:</label>
+							<label for="limit_field">结果限值:</label>
 							<input name="limit_field" class="form-control"  id="limit_field" value="50" min="1" max="1000" type="number"/>
 						</div>
 						<div class="nav input_unit_container form-group">
-							<label class="nav input_label" for="edge_filter">Traverse by edge:</label>
+							<label class="nav input_label" for="edge_filter">按边遍历:</label>
 							<input name="edge_filter" class="form-control"  id="edge_filter" value="" />
 						</div>
 						<div class="nav input_unit_container form-group">
-							<label class="nav input_label" for="nbLayers">Nb of layers</label>
+							<label class="nav input_label" for="nbLayers">Nb层数</label>
 							<input type="number" class="form-control"  id="nbLayers" min="1" max="128" onclick="set_nb_layers()">
 						</div>
 					</div>
@@ -76,18 +76,20 @@
 			</div>
 			<nav class="navbar navbar-dark bg-dark">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span><span style="color: white;"> Form Queries</span>
+					<span class="navbar-toggler-icon"></span><span style="color: white;"> 表单查询
+                    </span>
 				</button>
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li style="margin-left: 10px;">
-						<button style="float;left; position: relative;" class="btn btn-default"  onclick="editGraph()" > Edit Graph </button>
+						<button style="float;left; position: relative;" class="btn btn-default"  onclick="editGraph()" > 修改图 </button>
 					</li>
 					<li>
 						<div class="form-inline my-2 my-lg-0" id="editGraph" style="display:none; margin-left:10px;">
 							<div class="form-inline my-2 my-lg-0"> 
-								<button class="btn btn-default" onclick="addVertexForm()"> Add Vertex </button><br>
-								<button class="btn btn-default" onclick="editVertexForm()"> Edit Vertex </button><br>
-								<button class="btn btn-default" onclick="addEditEdgeForm()"> Add/Edit Edge </button><br>
+								<button class="btn btn-default" onclick="addVertexForm()"> 添加顶点
+                                </button><br>
+								<button class="btn btn-default" onclick="editVertexForm()"> 修改顶点 </button><br>
+								<button class="btn btn-default" onclick="addEditEdgeForm()">添加/修改边 </button><br>
 							</div>
 						</div>
 					</li>
@@ -96,15 +98,15 @@
 					<div class="form-inline my-2 my-lg-0"> 
 						<div class="form-check abc-checkbox" style="margin-right: 15px">
 							<input class="form-check-input" type="checkbox" name="Freeze" id="freeze-in" />
-							<label class="form-check-label" for="freeze-in">Freeze exploration</label>
+							<label class="form-check-label" for="freeze-in">冻结搜索</label>
 						</div>
 						<div class="form-check abc-checkbox" style="margin-right: 15px">
 							<input class="form-check-input" type="checkbox" name="showName_box" id="showName" onclick="graphShapes.show_names()"/>
-							<label class="form-check-label" for="showName">Show labels</label>
+							<label class="form-check-label" for="showName">显示标签</label>
 						</div>
-						<button style="margin-right: 8px" name="search query" class="btn btn-outline-default my-2 my-sm-0" onclick="search_query();">Search</button>
-						<button style="margin-right: 8px" name="clear" class="btn btn-outline-danger my-2 my-sm-0"onclick="graph_viz.clear();">Clear</button>
-						<button  type="button"  class="btn btn-outline-info my-2 my-sm-0" data-toggle="modal" data-target="#myModal">Server Settings</button>
+						<button style="margin-right: 8px" name="search query" class="btn btn-outline-default my-2 my-sm-0" onclick="search_query();">搜索</button>
+						<button style="margin-right: 8px" name="clear" class="btn btn-outline-danger my-2 my-sm-0"onclick="graph_viz.clear();">清除</button>
+						<button  type="button"  class="btn btn-outline-info my-2 my-sm-0" data-toggle="modal" data-target="#myModal">服务器设置</button>
 					</div>
 				</div>
 			</nav>
@@ -115,71 +117,71 @@
 					<svg></svg>
 				</div>
 				<div class="aside left_bar_edit"><div class="nav input_unit_container", id="addVertexForm" style="display:none;">
-					<h2>Add Vertex :</h2>
+					<h2>添加顶点 :</h2>
 					<div class="nav input_unit_container form-group">
-						<label for="vertexLabel">Vertex Label: </label>
+						<label for="vertexLabel">顶点标签: </label>
 						<input type="text" name="vertexLabel" id="vertexLabel" class="form-control" placeholder="Enter Vertex Label">
 					</div>
 					<div class="nav input_unit_container form-group">
-						<label for="vertexPropertyName">Vertex Property:</label>
+						<label for="vertexPropertyName">顶点属性:</label>
 						<input type="text" name="vertexPropertyName" class="form-control" id="vertexPropertyName" placeholder="Enter Comma Seperated Property Name (e.g. name,age,gender)"  size="45">
 					</div>
 					<div class="nav input_unit_container form-group">
-						<label for="vertexPropertyValue">Property Value:</label>
+						<label for="vertexPropertyValue">属性值:</label>
 						<input type="text" name="vertexPropertyValue" class="form-control" id="vertexPropertyValue"  placeholder="Enter Comma Seperated Property Value (e.g. Sandeep,27,male)">
 					</div>
-					<button class="btn btn-default btn-block" onclick="addVertex()"> Add Vertex </button>						 
+					<button class="btn btn-default btn-block" onclick="addVertex()"> 添加顶点 </button>
 				</div><div class="nav input_unit_container", id="editVertexForm" style="display:none;">
-					<h2>Edit Vertex :</h2>
+					<h2>修改顶点 :</h2>
 					<div class="nav input_unit_container form-group">
-						<label for="vertexId" > Vertex ID: </label>
+						<label for="vertexId" > 顶点 ID: </label>
 						<input type="text" name="vertexId" id="vertexId" class="form-control" size="45"  placeholder="Enter Vertex ID (e.g. 123)">
 					</div>
 					<div class="nav input_unit_container form-group">
-						<label for="vertexPropertyName" > Vertex Property: </label>
+						<label for="vertexPropertyName" > 顶点属性: </label>
 						<input type="text" name="vertexPropertyName_1" id="vertexPropertyName_1" class="form-control" placeholder="Enter Comma Seperated Property Name (e.g. name,age)">
 					</div>
 					<div class="nav input_unit_container form-group">
-						<label for="vertexPropertyValue" > Property Value: </label>
+						<label for="vertexPropertyValue" > 属性值: </label>
 						<input type="text" name="vertexPropertyValue_1" id="vertexPropertyValue_1" class="form-control" placeholder="Enter Comma Seperated Property Value (e.g. Sandeep,25)">
 					</div>
-					<button class="btn btn-default btn-block" onclick="editVertex()"> Edit Vertex </button>
+					<button class="btn btn-default btn-block" onclick="editVertex()"> 修改顶点 </button>
 				</div><div class="nav input_unit_container", id="addEditEdgeForm" style="display:none;">
-					<h2>Add / Edit Edge :</h2>
+					<h2>添加 / 修改 边 :</h2>
 					<div class="nav input_unit_container form-group">
 
-						<label for="edgeLabel" > Edge Label: </label>
+						<label for="edgeLabel" > 边标签: </label>
 						<input type="text" name="edgeLabel" id="edgeLabel"  class="form-control" placeholder="Enter Edge Label">
 					</div>
 					<div class="nav input_unit_container form-group">
 
-						<label for="sourceVertexId"> Source Vertex ID: </label>
+						<label for="sourceVertexId"> 源顶点 ID: </label>
 						<input type="text" name="sourceVertexId" id="sourceVertexId" class="form-control"  placeholder="Enter Source Vertex ID">
 					</div>
 					<div class="nav input_unit_container form-group">
 
-						<label for="targetVertexId"> Target Vertex ID: </label>
+						<label for="targetVertexId"> 目标顶点 ID: </label>
 						<input type="text" name="targetVertexId" id="targetVertexId" class="form-control"  placeholder="Enter Target Vertex ID">
 					</div>
 					<div class="nav input_unit_container form-group">
 
-						<label for="edgePropertyName"> Property Name: </label>
+						<label for="edgePropertyName"> 属性名: </label>
 						<input type="text" name="edgePropertyName" id="edgePropertyName" class="form-control"  placeholder="Enter Comma Seperated Property Name">
 					</div>
 					<div class="nav input_unit_container form-group">
 
-						<label for="edgePropertyValue"> Property Value: </label>
+						<label for="edgePropertyValue"> 属性值: </label>
 						<input type="text" name="edgePropertyValue" id="edgePropertyValue" class="form-control"  placeholder="Enter Comma Seperated Property Value">
 					</div>
-					<button  class="btn btn-default btn-block" onclick="addEditEdge()"> Add/Edit Edge </button>
+					<button  class="btn btn-default btn-block" onclick="addEditEdge()"> 添加/修改 边 </button>
 				</div></div>
 				<div class="aside left_bar" style="pointer-events:auto;">
 					<div  id="graphInfoBar" style="pointer-events:auto;">
-						<button name="graphInfo" class="btn btn-default btn-lg" onclick="get_graph_info();">Get graph info</button>
+						<button name="graphInfo" class="btn btn-default btn-lg" onclick="get_graph_info();">获取图形信息</button>
 						<div class="form-check">
 							<input type="checkbox" name="showgraphinfo" id="showgraphinfo" onchange="show_hide_element('#graphInfo')"/>
 							<label class="form-check-label" for="showgraphinfo">
-								Show/hide graph info
+								展示/隐藏 图形信息
 							</label>
 						</div>
 					</div>
@@ -203,30 +205,30 @@
 					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
-							<h4 class="modal-title">Server Settings :</h4>
+							<h4 class="modal-title">服务器设置 :</h4>
 						</div>
 						<div class="modal-body">
 							<div class="footer">
 								<div class="container">
 									<form>
 										<div class="form-group">
-											<label for="server_address">Server address:</label>
+											<label for="server_address">服务器地址:</label>
 											<input name="server_address" type="text" class="form-control" id="server_address" placeholder="Enter server address" value="localhost">
-											<small id="emailHelp" class="form-text text-muted">The gremlin server address with which we want to communicate.</small>
+											<small id="emailHelp" class="form-text text-muted">我们要与之通信的Gremlin服务器地址</small>
 										</div>
 										<div class="form-group">
-											<label for="server_port">Server Port</label>
+											<label for="server_port">服务器端口</label>
 											<input type="text" class="form-control" name="server_port" id="server_port" placeholder="Server port" value="8182">
 										</div>
 										<div class="form-group">
-											<label for="server_protocol">Protocol:</label>
+											<label for="server_protocol">协议:</label>
 											<select class="form-control form-control-lg" name="server_protocol" id="server_protocol">
 												<option value="websocket">websocket</option>
 												<option value="REST">REST</option>
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="communication_method">Gremlin version:</label>
+											<label for="communication_method">Gremlin版本:</label>
 											<select class="form-control form-control-lg" name="communication_method" id="communication_method">
 												<option value="GraphSON3">3.3.*</option>
 												<option value="GraphSON2">3.2.*</option>
@@ -239,7 +241,8 @@
 						</div>
 						<div class="modal-footer">
 							<a style="display: block;position: absolute;left: 30px;" href="http://www.github.com/bricaud/graphexp">Graph Explorer V 0.8.0</a>
-							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
 						</div>
 					</div>
 				</div>
@@ -340,7 +343,7 @@
 
 		function display_prop(prop){
 			var prop_id = prop.id;
-			var prop_id_nb = prop.getAttribute('id_nb');
+			var prop_id_f = prop.getAttribute('id_nb');
 			var text_base_offset = 10;
 			var text_offset = 10;
 			var prop_name = prop_id.slice(prop_id.indexOf("_")+1);
